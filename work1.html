@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>แบบทดสอบ ม.1</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div class="container-fluid p-5 bg-primary text-white text-center">
+  <h1>แบบทดสอบ เข้าม.1</h1>
+</div>
+  
+<div class="container mt-5 p-5">
+  <div class="row" id="startBox">
+     <button class="btn-primary btn" id="btnStart">เริ่มทำแบบทดสอบ</button>
+  </div>
+  <div class="row" id="quizBox">
+    <div id="quizListBox"></div>
+    <button class="btn-primary btn" id="btnCheckAnswer">ตรวจคำตอบ</button>
+  </div>
+  <div class="row mt-3" id="resultBox" style="display:none;">
+    <h3 id="resultText"></h3>
+    <!-- เพิ่มปุ่มกลับไปที่หน้าแรก -->
+    <button class="btn btn-secondary" id="btnBackToStart">กลับไปที่หน้าแรก</button>
+  </div>
+</div>
+
+<script>
+
+  var quizlist = [
+    {
+        "title": "ลำธารไหลผ่านหมู่บ้านแห่งหนึ่ง เป็นลำธารที่สำคัญที่ช่วยหล่อเลี้ยงชีวิตของผู้คนในหมู่บ้าน ลำธารมีสีน้ำที่ใสสะอาด จนสามารถสังเกตเห็นก้อนกรวดใต้ลำธารได้ชัดเจน ภายในลำธารพบสิ่งมีชีวิตมากมาย ไม่ว่าจะเป็นปลาหลากชนิดที่แหวกว่าย เหงือกขยับคอยรับออกซิเจนจากน้ำ บ้างก็หลบอยู่ใต้หินเพื่อรอเหยื่อ หอยน้ำจืดหลากสีที่กำลังคืบคลานหาอาหารริมลำธาร ตัวอ่อนแมลงปอที่อำพลางตัวจนกลมกลืนกับพืชน้ำเพื่อหลบผู้ล่า <br>คำว่า ลำธาร ในข้อความมีความสอดคล้องข้อใดมากที่สุด",
+        "options": [
+            "ประชากร",
+            "แหล่งที่อยู่",
+            "ชีวภูมิภาค",
+            "ระบบนิเวศ",
+            "กลุ่มสิ่งมีชีวิต"
+        ],
+        "answer": 4
+    },
+    {
+        "title": "10+15=?",
+        "options": [
+            "15",
+            "20",
+            "25",
+            "30",
+            "35"
+        ],
+        "answer": 3
+    },
+    {
+        "title": "ข้อใดมีค่ามากที่สุด?",
+        "options": [
+            "25+30",
+            "15*4",
+            "60-10",
+            "7^2",
+            "3*5"
+        ],
+        "answer": 4
+    },
+    {
+        "title": "ผลบวกของ 3/4 และ 1/2 เท่ากับเท่าใด?",
+        "options": [
+            "5/4",
+            "7/4",
+            "3/8",
+            "9/4",
+            "8/2"
+        ],
+        "answer": 2
+    },
+    {
+        "title": "ถ้า x+5 = 12 ค่า x เท่ากับเท่าใด?",
+        "options": [
+            "4",
+            "5",
+            "6",
+            "7",
+            "8"
+        ],
+        "answer": 4
+    },
+    {
+        "title": "รูปเรขาคณิตใดมีมุมทั้งหมด 360 องศา?",
+        "options": [
+            "สามเหลี่ยม",
+            "สี่เหลี่ยม",
+            "ห้าเหลี่ยม",
+            "หกเหลี่ยม",
+            "วงกลม"
+        ],
+        "answer": 2
+    },
+    {
+        "title": "จำนวนใดเป็นจำนวนเฉพาะ?",
+        "options": [
+            "1",
+            "2",
+            "4",
+            "9",
+            "15"
+        ],
+        "answer": 1
+    },
+    {
+        "title": "สิ่งมีชีวิตใดเป็นผู้ผลิต (Producer)?",
+        "options": [
+            "สิงโต",
+            "มนุษย์",
+            "สาหร่าย",
+            "แมวอ้วนที่อยู่ร้านเครื่องเขียนนัดพบ",
+            "ปลา"
+        ],
+        "answer": 3
+    },
+    {
+        "title": "น้ำเปลี่ยนสถานะจากของเหลวเป็นก๊าซเรียกว่าอะไร?",
+        "options": [
+            "การระเหย",
+            "การควบแน่น",
+            "การลอมเหลว",
+            "การแข็งตัว",
+            "การงาน"
+        ],
+        "answer": 1
+    },
+    {
+        "title": "สิ่งใดเป็นแหล่งพลังงานที่ใช้แล้วหมดไป?",
+        "options": [
+            "น้ำ",
+            "ลม",
+            "ถ่านหิน",
+            "แสงอาทิตย์",
+            "แสงจันทร์"
+        ],
+        "answer": 3
+    },
+    {
+        "title": "ดาวเคราะห์ดวงใดอยู่ใกล้ดวงอาทิตย์มากที่สุด",
+        "options": [
+            "ดวงจันทร์",
+            "ดาวโลค",
+            "ดาวอังคาร",
+            "ดาวเนปจูน",
+            "ดาวพุธ"
+        ],
+        "answer": 5
+    },
+    {
+        "title": "สมบัติข้อใดเป็นของโลหะ?",
+        "options": [
+            "เปราะง่าย",
+            "นำไฟฟ้า",
+            "ไม่มีความมันวาว",
+            "ไม่ขึ้นสนิม",
+            "ละลายน้ำ"
+        ],
+        "answer": 2
+    },
+    {
+        "title": "ศาสดาของศาสนาพุทธคือใคร?",
+        "options": [
+            "สิทธัตถะ เอเมอรัล",
+            "พระนารายณ์",
+            "พระมหาซาโตชิ นากาโมโตะ",
+            "พระมหาโมเสส",
+            "พระพุทธเจ้า"
+        ],
+        "answer": 5
+    },
+    {
+        "title": "ประเทศไทยมีกี่ฤดูกาล?",
+        "options": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"
+        ],
+        "answer": 3
+    },
+    {
+        "title": "ข้อใดคือหน้าที่พลเมือง?",
+        "options": [
+            "ทำงานเพื่อหารายได้",
+            "ใช้สิทธิเลือกตั้ง",
+            "ซื้อสินค้าไทย",
+            "ศึกษาต่อในระดับสูง",
+            "กินข้าวกับพ่อแม่ทุกเย็นเพื่อเป็นการประหยัดเงิน"
+        ],
+        "answer": 2
+    },
+    {
+        "title": "แม่น้ำใดเป็นแม่น้ำสายสำคัญของประเทศไทย?",
+        "options": [
+            "แม่น้ำคงคา",
+            "แม่น้ำเจ้าพระยา",
+            "แม่น้ำไนล์",
+            "ลูกน้ำนอล์",
+            "แม่น้ำโขง"
+        ],
+        "answer": 2
+    },
+    {
+        "title": "-นกน้อยทำรังแต่พอตัว- สอนให้เราอะไร?",
+        "options": [
+            "ใช้ชีวิตเรียบง่าย",
+            "อย่าทำงานหนัก",
+            "ทำตามใจตัวเอง",
+            "ช่วยเหลือผู้อื่น",
+            "คิดถึงฉันสักนิดหน่อ"
+        ],
+        "answer": 1
+    },
+    {
+        "title": "คำว่า -วัวหายล้อมคอก- มีความหมายว่าอย่างไร?",
+        "options": [
+            "ขยันทำงาน",
+            "ทำสิ่งที่ไม่มีประโยชน์",
+            "ระมัดระวังตั้งแต่แรก",
+            "ทำสิ่งที่มีประโยชน์",
+            "แก้ปัญหาหลังจากเกิดความเสียหาย"
+        ],
+        "answer": 5
+    },
+    {
+        "title": "ข้อใดเป็นคำพ้องความหมาย?",
+        "options": [
+            "น้ำ - ทะเล",
+            "เด็ก - ผู้ใหญ่",
+            "มืด - มัว",
+            "สวย - งาม",
+            "กิน - ข้าว"
+        ],
+        "answer": 4
+    },
+    {
+        "title": "เพลง ศึกษานารี เป็นของวงไหน?",
+        "options": [
+            "ลาบานูน",
+            "ม้าบานูน",
+            "ลาบู้บู้",
+            "ลาบาปูด",
+            "บาบาบูน"
+        ],
+        "answer": 3
+    }
+
+  ];
+
+  $(function(){
+    $("#quizBox").hide();
+    $("#resultBox").hide();
+    
+    // เริ่มทำแบบทดสอบ
+    $("#btnStart").click(function(){
+       $("#startBox").hide();
+       $("#quizBox").show();
+       displayQuizList();
+    });
+
+    // ตรวจคำตอบ
+    $("#btnCheckAnswer").click(function(){
+      var score = 0;
+      
+      // ตรวจคำตอบแต่ละข้อ
+      $("input[type='radio']:checked").each(function(){
+        var questionIndex = $(this).attr('name').replace('q', '') - 1;  // หาเลขข้อที่เลือก
+        var selectedValue = parseInt($(this).val());  // ค่าของตัวเลือกที่ผู้ใช้เลือก
+        if (selectedValue === quizlist[questionIndex].answer) {
+          score++;
+        }
+      });
+
+      // แสดงผลคะแนน
+      $("#resultText").text("คุณได้คะแนน " + score + " คะแนน จากทั้งหมด " + quizlist.length + " ข้อ");
+      $("#resultBox").show();
+      $("#quizBox").hide();
+    });
+
+    // ฟังก์ชันกลับไปที่หน้าแรก
+    $("#btnBackToStart").click(function(){
+      // ซ่อนผลลัพธ์ และแสดงหน้าเริ่มต้น
+      $("#resultBox").hide();
+      $("#startBox").show();
+    });
+  });
+
+  function displayQuizList(){
+    $("#quizListBox").html("<div class='p-1'>ข้อสอบ</div>");
+    for(var i in quizlist){
+      displayQuiz(i,quizlist[i]);
+    }
+  }
+
+  function displayQuiz(i,q){
+    var no = parseInt(i) + 1;
+    var html = "<div class='p-2'>ข้อที่ "+no+".<div>"+q.title+"</div>";
+    for(var c in q.options){
+      var v = parseInt(c) + 1;
+      html += "<div class='alert alert-info'>";
+      html += "<input type='radio' name='q"+no+"' value='"+v+"'>"+v+". ";  
+      html += q.options[c] + "</div>";  
+    }
+    html += "</div>";
+    $("#quizListBox").append(html);
+  }
+
+</script>
+</body>
+</html>
