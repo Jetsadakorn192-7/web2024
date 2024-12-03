@@ -8,7 +8,7 @@ body {
     font-family: 'Roboto', sans-serif;
     line-height: 1.6;
     color: #333;
-    background-color: #f9f9f9;
+    background-color: #f2f2f2;
 }
 
 .container {
@@ -24,9 +24,9 @@ h1, h2, h3 {
 
 /* Header Styles */
 header {
-    background: #333;
+    background: #7a5237;
     color: #fff;
-    padding: 1rem 0;
+    padding: 1rem 0.5;
 }
 
 header .container {
@@ -52,13 +52,13 @@ header nav ul li {
 }
 
 header nav ul li a {
-    color: #fff;
+    color: #222;
     text-decoration: none;
     font-size: 1rem;
 }
 
 header nav ul li a:hover {
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 /* Hero Section Styles */
@@ -76,13 +76,14 @@ header nav ul li a:hover {
 .hero p {
     font-size: 1.2rem;
     margin: 1rem 0;
+    color: #bfbfbd;
 }
 
 .hero .btn {
     display: inline-block;
     padding: 0.7rem 1.5rem;
-    background: #ff5733;
-    color: #fff;
+    background: #be996f;
+    color: #222;
     text-decoration: none;
     font-size: 1rem;
     border-radius: 5px;
@@ -90,14 +91,17 @@ header nav ul li a:hover {
 }
 
 .hero .btn:hover {
-    background: #e74c3c;
+    background: #2e1402;
 }
 
 /* About Section Styles */
 .about {
-    background: #fff;
-    padding: 2rem 0;
+    background: #cfbfad;
     text-align: center;
+    padding: 2rem;
+    margin: 2rem;
+    border-radius: 5px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
 }
 
 .about h2 {
@@ -117,7 +121,7 @@ header nav ul li a:hover {
 }
 
 .service-item {
-    background: #fff;
+    background: #7a5237;
     border: 1px solid #ddd;
     padding: 1rem;
     margin: 1rem 0;
@@ -126,7 +130,7 @@ header nav ul li a:hover {
 }
 
 .service-item h3 {
-    color: #ff5733;
+    color: #2e1402;
     margin-bottom: 0.5rem;
 }
 
@@ -164,21 +168,21 @@ header nav ul li a:hover {
 .contact button {
     display: inline-block;
     padding: 0.7rem 1.5rem;
-    background: #ff5733;
-    color: #fff;
+    background: #a47d53;
+    color: #222;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
 .contact button:hover {
-    background: #e74c3c;
+    background: #2e1402;
 }
 
 /* Footer Styles */
 footer {
-    background: #333;
-    color: #fff;
+    background: #7a5237;
+    color: #222;
     text-align: center;
     padding: 1rem 0;
 }
@@ -199,21 +203,21 @@ footer .social-links li {
 }
 
 footer .social-links a {
-    color: #fff;
+    color: #222;
     text-decoration: none;
     font-size: 1.2rem;
 }
 
 footer .social-links a:hover {
-    color: #ff5733;
+    color: #2e1402;
 }
 .scroll-to-top {
     position: fixed;
     bottom: 20px;
     right: 20px;
     padding: 0.5rem 1rem;
-    background: #ff5733;
-    color: #fff;
+    background: #a47d53;
+    color: #222;
     border: none;
     border-radius: 50%;
     font-size: 1.5rem;
@@ -223,15 +227,15 @@ footer .social-links a:hover {
 }
 
 .scroll-to-top:hover {
-    background: #e74c3c;
+    background: #a47d53;
 }
 
 a {
     text-decoration: none;
-    color: blue; /* สีลิงก์ */
+    color: black; /* สีลิงก์ */
 }
 
 /* เปลี่ยนสีเมื่อวางเมาส์ */
 a:hover {
-    color: darkblue;
+    color: #222;
 }

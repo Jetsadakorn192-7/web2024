@@ -82,30 +82,56 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Fetch JSON data and populate the webpage
-fetch('quiz.json')
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok ' + response.statusText);
-        }
-        return response.json();
-    })
-    .then(data => {
-        // Populate header content
-        document.getElementById('main-title').textContent = data.title;
-        document.getElementById('main-options').textContent = data.options;
-
-        // Populate answer section
-        const answerList = document.getElementById('answer-list');
-        data.answer.forEach(answer => {
-            const answerDiv = document.createElement('div');
-            answerDiv.className = 'answer-item';
-            answerDiv.innerHTML = `
-                <h3>${answer}</h3>
-            `;
-            answerList.appendChild(answerDiv);
-        });
-    })
-    .catch(error => {
-        console.error('There was a problem with the fetch operation:', error);
+$(function(){
+    $("#quizBox").hide();
+    $("#resultBox").hide();
+  
+    // เริ่มทำแบบทดสอบ
+    $("#btnStart").click(function(){
+      $("#startBox").hide();
+      $("#quizBox").show();
+      displayQuizList();
     });
+  
+    // ตรวจคำตอบ
+    $("#btnCheckAnswer").click(function(){
+      var score = 0;
+      $("input[type='radio']:checked").each(function(){
+        var questionIndex = $(this).attr('name').replace('q', '') - 1; 
+        var selectedValue = parseInt($(this).val()); 
+        if (selectedValue === quizlist[questionIndex].answer) {
+          score++;
+        }
+      });
+  
+      $("#resultText").text("คุณได้คะแนน " + score + " คะแนน จากทั้งหมด " + quizlist.length + " ข้อ");
+      $("#resultBox").show();
+      $("#quizBox").hide();
+    });
+  
+    // ฟังก์ชันกลับไปที่หน้าแรก
+    $("#btnBackToStart").click(function(){
+      $("#resultBox").hide();
+      $("#startBox").show();
+    });
+  });
+  
+  function displayQuizList(){
+    $("#quizListBox").html("<div class='p-1'>ข้อสอบ</div>");
+    for(var i in quizlist){
+      displayQuiz(i, quizlist[i]);
+    }
+  }
+  
+  function displayQuiz(i, q){
+    var no = parseInt(i) + 1;
+    var html = "<div class='p-2'>ข้อที่ "+no+".<div>"+q.title+"</div>";
+    for(var c in q.options){
+      var v = parseInt(c) + 1;
+      html += "<div class='alert alert-info'>";
+      html += "<input type='radio' name='q"+no+"' value='"+v+"'>"+v+". ";  
+      html += q.options[c] + "</div>";  
+    }
+    html += "</div>";
+    $("#quizListBox").append(html);
+  }

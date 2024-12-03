@@ -1,0 +1,11 @@
+#app {
+    font-family: 'Kanit', sans-serif;
+    background-color: #f4f5f7;
+    min-height: 100vh;
+}
+.text-danger {
+    color: red;
+}
+.text-center {
+    text-align: center;
+}
