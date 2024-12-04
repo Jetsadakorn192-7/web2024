@@ -1,31 +1,42 @@
+* {
+  font-family: 'California', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
 body {
-    font-family: Arial, sans-serif;
-  }
-  
-  .bg-primary {
-    background-color: #007bff !important;
-  }
-  
-  .btn-primary {
-    background-color: #0056b3;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-  }
-  
-  .btn-primary:hover {
-    background-color: #004494;
-  }
-  
-  .alert-info {
-    background-color: #e9ecef;
-    padding: 10px;
-    border-radius: 5px;
-  }
-  
-  .container {
-    max-width: 900px;
-    margin: auto;
-  }
-  
+  font-family: Arial, sans-serif;
+  background-color: #f4f1ea; /* สีพื้นหลังโทนเบจ */
+  color: #5c4a41; /* สีข้อความโทนน้ำตาล */
+}
+
+.bg-primary {
+  background-color: #8c6d62 !important; /* สีน้ำตาลอ่อน */
+}
+
+.btn-primary {
+  background-color: #6d4c41; /* สีน้ำตาลเข้ม */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px; /* เพิ่มมุมโค้งเล็กน้อย */
+}
+
+.btn-primary:hover {
+  background-color: #5c4036; /* สีน้ำตาลเข้มขึ้นสำหรับ hover */
+}
+
+.alert-info {
+  background-color: #e0dcd5; /* สีเบจอ่อน */
+  color: #5c4a41; /* สีข้อความโทนน้ำตาล */
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+  background-color: #f4f1ea; /* พื้นหลังกล่อง */
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* เพิ่มเงา */
+}
