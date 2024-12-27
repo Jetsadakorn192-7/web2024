@@ -4,17 +4,17 @@
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #f4f1ea; /* สีพื้นหลังโทนเบจ */
-  color: #5c4a41; /* สีข้อความโทนน้ำตาล */
+  background-color: #fff; /* พื้นหลังเป็นสีขาว */
+  color: #333; /* สีข้อความเป็นสีดำ */
 }
 
 .bg-primary {
-  background-color: #8c6d62 !important; /* สีน้ำตาลอ่อน */
+  background-color: #4e3629 !important; /* น้ำตาลเข้ม */
 }
 
 .btn-primary {
-  background-color: #6d4c41; /* สีน้ำตาลเข้ม */
-  color: #fff;
+  background-color: #3e2a1f; /* น้ำตาลเข้ม */
+  color: #fff; /* ข้อความในปุ่มเป็นสีขาว */
   border: none;
   padding: 10px 20px;
   font-size: 16px;
@@ -22,21 +22,32 @@ body {
 }
 
 .btn-primary:hover {
-  background-color: #5c4036; /* สีน้ำตาลเข้มขึ้นสำหรับ hover */
+  background-color: #2e1c13; /* สีน้ำตาลเข้มขึ้นสำหรับ hover */
 }
 
 .alert-info {
-  background-color: #e0dcd5; /* สีเบจอ่อน */
-  color: #5c4a41; /* สีข้อความโทนน้ำตาล */
+  background-color: #f5f5f5; /* สีพื้นหลังเป็นสีขาวอมเทา */
+  color: #4e3629; /* สีข้อความเป็นน้ำตาลเข้ม */
   padding: 10px;
   border-radius: 5px;
+  border: 1px solid #d4d4d4; /* ขอบบางๆ สีเทา */
 }
 
 .container {
   max-width: 900px;
   margin: auto;
   padding: 20px;
-  background-color: #f4f1ea; /* พื้นหลังกล่อง */
+  background-color: #fff; /* พื้นหลังกล่องเป็นสีขาว */
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* เพิ่มเงา */
+}
+
+/* ปรับปรุงสีของลิงก์ */
+a {
+  color: #4e3629; /* สีลิงก์เป็นน้ำตาลเข้ม */
+  text-decoration: none;
+}
+
+a:hover {
+  color: #2e1c13; /* เมื่อ hover เป็นสีน้ำตาลเข้มขึ้น */
 }

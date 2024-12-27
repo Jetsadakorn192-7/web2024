@@ -8,7 +8,7 @@ body {
     font-family: 'Roboto', sans-serif;
     line-height: 1.6;
     color: #333;
-    background-color: #f2f2f2;
+    background-color: #fff; /* เปลี่ยนพื้นหลังให้เป็นสีขาว */
 }
 
 .container {
@@ -19,13 +19,13 @@ body {
 
 h1, h2, h3 {
     margin: 0;
-    color: #222;
+    color: #222; /* สีข้อความเป็นสีดำ */
 }
 
 /* Header Styles */
 header {
-    background: #7a5237;
-    color: #fff;
+    background: #000; /* สีพื้นหลังของ header เป็นสีดำ */
+    color: #fff; /* ข้อความใน header เป็นสีขาว */
     padding: 1rem 0.5;
 }
 
@@ -52,38 +52,39 @@ header nav ul li {
 }
 
 header nav ul li a {
-    color: #222;
+    color: #fff; /* ลิงก์ใน header เป็นสีขาว */
     text-decoration: none;
     font-size: 1rem;
 }
 
 header nav ul li a:hover {
-    text-decoration: none;
+    color: #aaa; /* สีเมื่อ hover เป็นสีเทา */
 }
 
 /* Hero Section Styles */
 .hero {
-    background: url('hero-image.jpg') no-repeat center center/cover;
-    color: #fff;
+    background: #000; /* เปลี่ยนพื้นหลังของ hero ให้เป็นสีดำ */
+    color: #fff; /* ข้อความใน hero เป็นสีขาว */
     text-align: center;
     padding: 4rem 1rem;
 }
 
 .hero h2 {
     font-size: 2.5rem;
+    color: #e64a19;
 }
 
 .hero p {
     font-size: 1.2rem;
     margin: 1rem 0;
-    color: #bfbfbd;
+    color: #bbb; /* สีเทาอ่อนสำหรับข้อความ */
 }
 
 .hero .btn {
     display: inline-block;
     padding: 0.7rem 1.5rem;
-    background: #be996f;
-    color: #222;
+    background: #222; /* ปุ่มเป็นสีดำ */
+    color: #fff; /* ข้อความในปุ่มเป็นสีขาว */
     text-decoration: none;
     font-size: 1rem;
     border-radius: 5px;
@@ -91,12 +92,12 @@ header nav ul li a:hover {
 }
 
 .hero .btn:hover {
-    background: #2e1402;
+    background: #555; /* สีปุ่มเมื่อ hover */
 }
 
 /* About Section Styles */
 .about {
-    background: #cfbfad;
+    background: #fff; /* เปลี่ยนพื้นหลังให้เป็นสีขาว */
     text-align: center;
     padding: 2rem;
     margin: 2rem;
@@ -107,21 +108,23 @@ header nav ul li a:hover {
 .about h2 {
     font-size: 2rem;
     margin-bottom: 1rem;
+    color: #222; /* สีข้อความเป็นสีดำ */
 }
 
 /* Services Section Styles */
 .services {
-    background: #f4f4f4;
+    background: #fff; /* เปลี่ยนพื้นหลังเป็นสีขาว */
     padding: 2rem 0;
 }
 
 .services h2 {
     text-align: center;
     margin-bottom: 2rem;
+    color: #222;
 }
 
 .service-item {
-    background: #7a5237;
+    background: #f4f4f4; /* สีพื้นหลังอ่อนสำหรับ service items */
     border: 1px solid #ddd;
     padding: 1rem;
     margin: 1rem 0;
@@ -130,7 +133,7 @@ header nav ul li a:hover {
 }
 
 .service-item h3 {
-    color: #2e1402;
+    color: #222; /* สีหัวข้อของแต่ละบริการ */
     margin-bottom: 0.5rem;
 }
 
@@ -143,6 +146,7 @@ header nav ul li a:hover {
 .contact h2 {
     text-align: center;
     margin-bottom: 2rem;
+    color: #222;
 }
 
 .contact form {
@@ -163,26 +167,27 @@ header nav ul li a:hover {
     margin-bottom: 1rem;
     border: 1px solid #ddd;
     border-radius: 5px;
+    background-color: #f9f9f9; /* พื้นหลังของ input และ textarea */
 }
 
 .contact button {
     display: inline-block;
     padding: 0.7rem 1.5rem;
-    background: #a47d53;
-    color: #222;
+    background: #222; /* ปุ่มสีดำ */
+    color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
 .contact button:hover {
-    background: #2e1402;
+    background: #555; /* สีปุ่มเมื่อ hover */
 }
 
 /* Footer Styles */
 footer {
-    background: #7a5237;
-    color: #222;
+    background: #000; /* พื้นหลังสีดำ */
+    color: #fff; /* ข้อความสีขาว */
     text-align: center;
     padding: 1rem 0;
 }
@@ -203,21 +208,22 @@ footer .social-links li {
 }
 
 footer .social-links a {
-    color: #222;
+    color: #fff; /* ลิงก์สีขาว */
     text-decoration: none;
     font-size: 1.2rem;
 }
 
 footer .social-links a:hover {
-    color: #2e1402;
+    color: #bbb; /* สีเมื่อ hover */
 }
+
 .scroll-to-top {
     position: fixed;
     bottom: 20px;
     right: 20px;
     padding: 0.5rem 1rem;
-    background: #a47d53;
-    color: #222;
+    background: #222; /* ปุ่ม scroll to top สีดำ */
+    color: #fff;
     border: none;
     border-radius: 50%;
     font-size: 1.5rem;
@@ -227,15 +233,15 @@ footer .social-links a:hover {
 }
 
 .scroll-to-top:hover {
-    background: #a47d53;
+    background: #555; /* ปุ่มเมื่อ hover */
 }
 
 a {
     text-decoration: none;
-    color: black; /* สีลิงก์ */
+    color: #222; /* ลิงก์สีดำ */
 }
 
 /* เปลี่ยนสีเมื่อวางเมาส์ */
 a:hover {
-    color: #222;
+    color: #555; /* สีลิงก์เมื่อ hover */
 }
