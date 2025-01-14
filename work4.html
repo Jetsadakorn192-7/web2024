@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.5.2/dist/aframe-extras.min.js"></script>
+    <title>Work4</title>
+    <link rel="stylesheet" href="work4.css">
+</head>
+<body>
+    <a-scene>
+        <!-- 360 Background -->
+        <a-sky src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg"></a-sky>
+  
+        <!-- Self Representation (Model or Shape) -->
+        <a-entity gltf-model="Wolf.glb" position="0 1.5 -3" scale="0.35 0.35 0.35" rotation="0 45 0">
+          <!-- Add Animation -->
+          <a-animation attribute="rotation" dur="10000" fill="forwards" to="0 360 0" repeat="indefinite"></a-animation>
+        </a-entity>
+  
+        <!-- Introduction Info -->
+        <a-text value="ชื่อ Jetsadakorn Dutphayap\nรหัส 653380192-7\nข้อมูล I am a lone wolf and a chill guy."
+                color="#FFFFFF"
+                width="3"
+                position="-1 2 -3"></a-text>
+  
+        <!-- Additional Animation (e.g., bouncing sphere) -->
+        <a-sphere position="1 1.5 -2" radius="0.3" color="#FF6347">
+          <a-animation attribute="position" dur="2000" from="1 1.5 -2" to="1 2 -2" repeat="indefinite" direction="alternate"></a-animation>
+        </a-sphere>
+  
+        <!-- Interactivity (Optional) -->
+        <!-- <a-entity position="0 1 -2" geometry="primitive: plane; height: 1; width: 2"
+                  material="color: blue; opacity: 0.7" text="value: Click Me!; align: center; color: white;" 
+                  event-set__mouseenter="scale: 1.2 1.2 1.2"
+                  event-set__mouseleave="scale: 1 1 1"
+                  event-set__click="visible: false"></a-entity> -->
+  
+      </a-scene>
+</body>
+</html>
